@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <MainHeader :message="message"></MainHeader>
     <!-- <div id="header">
       <div>
         <router-link to="/test">test</router-link>
@@ -17,30 +18,33 @@
 </template>
 
 <script>
+// 컴포넌트 지역등록
+import { MainHeader } from './components/common';
+
 export default {
   name: 'App',
+  components: { MainHeader },
   data() {
     return {
+      message: '안냥',
       rawHtml: '<span>12312<span>',
       test: '1234',
-      dynamicId: true,
-      isButtonDisabled: true,
       attributeName: 'href',
       url: 'https://www.naver.com',
     };
   },
-  computed: {
-    // reversedMessage:;;
+  methods: {
   },
 
 };
 </script>
 
 <style>
+@import url('./assets/styles/reset.css');
+@import url('./assets/styles/common.css');
+
 html, body {
-  margin: 0;
   height: 100%;
-  overflow: hidden;
 }
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
