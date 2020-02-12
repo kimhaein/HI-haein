@@ -39,9 +39,9 @@ export default {
 };
 </script>
 
-<style>
-@import url('./assets/styles/reset.css');
-@import url('./assets/styles/common.css');
+<style lang="scss">
+@import url('./assets/styles/reset.scss');
+@import url('./assets/styles/common.scss');
 
 html, body {
   height: 100%;
@@ -50,7 +50,8 @@ html, body {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  // color:#4C5549;
   height: 100%;
-  background: #2c3e50;
+  background: #F1F3F2;
 }
 </style>
