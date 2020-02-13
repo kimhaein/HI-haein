@@ -1,7 +1,13 @@
 <template>
   <div id="main">
     <div class="section whoamiBox">
-      <h1>WHO AM I ? <br> <br> I AM <br> FRONT-END <br> DEVELOPER</h1>
+      <h1>
+        WHO AM I ?
+        <br />
+        <br />I AM
+        <br />FRONT-END
+        <br />DEVELOPER
+      </h1>
       <div class="imgBox">
         <div></div>
       </div>
@@ -9,7 +15,7 @@
         <!-- <div>
           <h2>안녕하세요 :-) 프론트엔드</h2>
           <p>안녕 반가워요 꺄륵꺌구</p>
-        </div> -->
+        </div>-->
       </div>
     </div>
     <div class="section aboutBox">
@@ -32,16 +38,15 @@
       <div class="careerList">
         <ul>
           <li class="careerItem">
-            <h4>2020.02 - 2017.07</h4>
+            <h4>2020.02 - 2019.07</h4>
             <div class="thumnail"></div>
             <h5>투자의 달인 앱 리뉴얼 / SBCN</h5>
+            <p>투자 정보 제공</p>
             <p>
-              투자 정보 제공
-            </p>
-            <p>
-              프론트 설계 및 UI 컴포넌트 개발 <br>
-              회원가입, 인증, 로그인, 대시보드, 관심종목 기능 등 개발 <br>
-              React-native, Redux, Redux-Saga <br>
+              프론트 설계 및 UI 컴포넌트 개발
+              <br />회원가입, 인증, 로그인, 대시보드, 관심종목 기능 등 개발
+              <br />React-native, Redux, Redux-Saga
+              <br />
             </p>
           </li>
           <li class="careerItem">
@@ -75,41 +80,40 @@
     <h1 v-if="isTrue">보인다</h1>
     <h1 v-else>안보인다</h1>
     <h1 v-show="show">안녕하세요!</h1>
-    <button @click="onClick">Click!</button> -->
+    <button @click="onClick">Click!</button>-->
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Main',
+  name: "Main",
   data() {
     return {
-      message: '안냥',
-      fullHeight: 'height : 100%',
-      show: true,
+      message: "안냥",
+      fullHeight: "height : 100%",
+      show: true
     };
   },
-  methods: {
-  },
+  methods: {}
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-@import url('../assets/styles/main.scss');
+@import url("../assets/styles/main.scss");
 
 .section {
   display: flex;
   position: relative;
-  width:100%;
-  height:100vh;
+  width: 100%;
+  height: 100vh;
 }
 
 .whoamiBox {
   h1 {
     position: fixed;
-    top:50px;
-    left:450px;
+    top: 50px;
+    left: 450px;
     font-size: 100px;
     font-weight: bold;
   }
@@ -122,10 +126,10 @@ export default {
     align-items: center;
     justify-content: center;
     div {
-      width:50%;
-      height:60%;
-      margin-top:100px;
-      background: #CC7F07;
+      width: 50%;
+      height: 60%;
+      margin-top: 100px;
+      background: #cc7f07;
       // background-image:url('../assets/imgs/hi01.jpg');
       // background-size: contain;
       // background-repeat: no-repeat;
@@ -133,8 +137,8 @@ export default {
       // background-attachment: fixed;
     }
   }
-  .textBox{
-    background: #EBDED5;
+  .textBox {
+    background: #ebded5;
   }
 }
 
@@ -142,18 +146,18 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-image:url('../assets/imgs/bg02.jpg');
+  background-image: url("../assets/imgs/bg02.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0;
   background-attachment: fixed;
   > div {
     position: relative;
-    width:30%;
-    height:70%;
-    margin:0px 15%;
-    background: #FFFFFF;
-    border: 10px solid #4C554B;
+    width: 30%;
+    height: 70%;
+    margin: 0px 15%;
+    background: #ffffff;
+    border: 10px solid #4c554b;
     h2 {
       margin: 30px 20px 20px;
       font-size: 60px;
@@ -161,38 +165,38 @@ export default {
     }
   }
   div::before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
-    bottom:-60px;
-    right:-60px;
-    width:150px;
-    height:150px;
-    background: #4C554B;
+    bottom: -60px;
+    right: -60px;
+    width: 150px;
+    height: 150px;
+    background: #4c554b;
   }
 }
 
 .careerBox {
   display: flex;
-  background: #F1F3F2;
+  background: #f1f3f2;
   .careerTitle {
     display: flex;
     align-items: center;
-    width:30%;
-    background: #EBDED5;
+    width: 30%;
+    background: #ebded5;
   }
   .careerList {
     align-self: center;
     overflow: scroll;
     height: 600px;
     ul {
-      width:200%;
-      padding:0px 10px;
+      width: 200%;
+      padding: 0px 10px;
       .careerItem {
-        float:left;
+        float: left;
         width: 300px;
         height: 600px;
-        padding:0px 10px;
+        padding: 0px 10px;
         margin: 0px 10px;
         h4 {
           margin: 20px 0px;
@@ -201,7 +205,7 @@ export default {
         }
         .thumnail {
           height: 200px;
-          background: #D8B59D;
+          background: #d8b59d;
           border-radius: 10px;
         }
         h5 {
@@ -219,14 +223,13 @@ export default {
   }
 }
 .sideBox {
-   background: #F1F3F2;
+  background: #f1f3f2;
 }
 
 .footer {
   align-self: flex-end;
   width: 100%;
   height: 40%;
-  background: #4C554B;
+  background: #4c554b;
 }
-
 </style>
