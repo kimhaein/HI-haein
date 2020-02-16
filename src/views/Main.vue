@@ -29,11 +29,21 @@
           <h4>경력</h4>
           <span>SBCN / 프론트엔드 개발자 / 2017.07 ~ 2020.02 (2년 6개월)</span>
         </div>
+        <p>
+          개발 언어 : JavaScript(ES6+), HTML5, CSS3, Sass
+          <br />프레임워크 / 라이브러리 : Express.js, React.js, React Native, Redux, Redux-Saga
+          <br />DBMS : MySQL, MariaDB
+          <br />서버 : Node.js
+          <br />도구, DevOps : GitHub, Swagger, Bitbucket, Jira, Confluence
+          <br />관심 기술 : Vue.js, TypeScript, Python / Jest, Jenkins / PWA
+          <br />
+        </p>
       </div>
     </div>
     <div class="section careerBox">
       <div class="careerTitle">
-        <h2>TimeLine</h2>
+        <h2>SBCN</h2>
+        <p>2017.07 ~ 2020.02</p>
       </div>
       <div class="careerList">
         <ul>
@@ -48,6 +58,7 @@
               <br />React-native, Redux, Redux-Saga
               <br />
             </p>
+            <a href="#">링크</a>
           </li>
           <li class="careerItem">
             <h4>2020.02 - 2017.07</h4>
@@ -68,12 +79,26 @@
         </ul>
       </div>
     </div>
-    <div class="section sideBox">
+    <div class="section sideProjectBox">
       <h2>SIDE PREJECT</h2>
-      <div></div>
+      <div>
+        <div class="projectBox">
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </ul>
+        </div>
+        <div class="projectDetailBox">
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="section contactBox">
-      <h2>CONTACT</h2>
       <div class="footer"></div>
     </div>
     <!-- <h1>{{ msg }}</h1>
@@ -81,20 +106,20 @@
     <h1 v-else>안보인다</h1>
     <h1 v-show="show">안녕하세요!</h1>
     <button @click="onClick">Click!</button>-->
+    <div id="point"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Main",
+  name: 'Main',
   data() {
     return {
-      message: "안냥",
-      fullHeight: "height : 100%",
-      show: true
+      message: '안냥',
+      fullHeight: 'height : 100%',
+      show: true,
     };
   },
-  methods: {}
 };
 </script>
 
@@ -130,6 +155,8 @@ export default {
       height: 60%;
       margin-top: 100px;
       background: #cc7f07;
+      box-shadow: 10px 10px 3px rgba($color: #000000, $alpha: 0.1);
+
       // background-image:url('../assets/imgs/hi01.jpg');
       // background-size: contain;
       // background-repeat: no-repeat;
@@ -149,7 +176,6 @@ export default {
   background-image: url("../assets/imgs/bg02.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 0;
   background-attachment: fixed;
   > div {
     position: relative;
@@ -158,6 +184,8 @@ export default {
     margin: 0px 15%;
     background: #ffffff;
     border: 10px solid #4c554b;
+    box-shadow: 10px 10px 3px rgba($color: #000000, $alpha: 0.1);
+
     h2 {
       margin: 30px 20px 20px;
       font-size: 60px;
@@ -173,6 +201,7 @@ export default {
     width: 150px;
     height: 150px;
     background: #4c554b;
+     box-shadow: 10px 10px 3px rgba($color: #000000, $alpha: 0.1);
   }
 }
 
@@ -180,22 +209,26 @@ export default {
   display: flex;
   background: #f1f3f2;
   .careerTitle {
-    display: flex;
-    align-items: center;
     width: 30%;
+    text-align: right;
     background: #ebded5;
+    h2 {
+      width:100%;
+      text-align: right;
+      font-size: 60px;
+      font-weight: bold;
+    }
   }
   .careerList {
     align-self: center;
     overflow: scroll;
-    height: 600px;
+    height: 550px;
     ul {
       width: 200%;
       padding: 0px 10px;
       .careerItem {
         float: left;
         width: 300px;
-        height: 600px;
         padding: 0px 10px;
         margin: 0px 10px;
         h4 {
@@ -222,14 +255,63 @@ export default {
     }
   }
 }
-.sideBox {
+
+.sideProjectBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #f1f3f2;
+  background-image: url("../assets/imgs/bg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  h2 {
+    position: absolute;
+    top:0;
+    left:0;
+    font-size: 100px;
+    font-weight: bold;
+  }
+  > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+    .projectBox {
+      width: 400px;
+      height: 520px;
+      background: #fff;
+      margin-right: 50px;
+      box-shadow: 5px 5px 3px rgba($color: #000000, $alpha: 0.1);
+    }
+    .projectDetailBox {
+      width: 600px;
+      height: 520px;
+      background: #fff;
+      box-shadow: 5px 5px 3px rgba($color: #000000, $alpha: 0.1);
+    }
+  }
 }
 
-.footer {
-  align-self: flex-end;
-  width: 100%;
-  height: 40%;
-  background: #4c554b;
+.contactBox {
+    .footer {
+      align-self: flex-end;
+      width: 90%;
+      height: 40%;
+      margin-left: 10%;
+      background: #4c554b;
+    }
 }
+
+
+// #point {
+//   position: fixed;
+//   bottom:30px;
+//   right:30px;
+//   width: 400px;
+//   height:400px;
+//   background-image:url('../assets/imgs/point01.png');
+//   background-size: contain;
+//   background-repeat: no-repeat;
+
+// }
 </style>
