@@ -33,5 +33,5 @@ jobs:
         target_branch: master
         build_dir: docs
       env:
-        GITHUB_TOKEN: ${{ secrets.GIT_PAGE_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
       
