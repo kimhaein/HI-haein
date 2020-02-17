@@ -1,0 +1,70 @@
+
+// Color - Theme
+$colorBg:#F1F3F2;
+$colorMain:#EBDED5;
+$colorSub01:#D8B59D;
+$colorSub02:#CC7F07;
+$colorPoint:#4C554B;
+$colorBlack:#000000;
+
+// Color - Text
+$colorText:#000000;
+$colorLink: red;
+
+// Color - Shadow
+$colorShadow:rgba($colorBlack, 0.1);
+
+
+// Font - Theme
+@mixin title01($size : 100px,  $weight : bold) {
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin title02($size : 80px, $weight : bold) {
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin title03($size : 50px, $weight : bold) {
+  font-size: $size;
+  font-weight: $weight;
+}
+
+// Metrics - Theme
+@mixin positionVcenter($width) {
+  left:50%;
+  margin-left: -($width/2);
+}
+@mixin positionHcenter($width) {
+  top:50%;
+  margin-top: -($width/2);
+}
+
+@mixin flexAllCenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flexAlignCenter() {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexJustifyCenter() {
+  display: flex;
+  justify-content: center;
+}
+
+// Background - Theme
+
+@mixin backgroundImg($url ,$size : cover, $repeat : no-repeat, $attachment : fixed) {
+  background-image: url($url);
+  background-size: $size;
+  background-repeat: $repeat;
+  background-attachment: $attachment;
+}
+
+
+

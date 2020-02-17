@@ -40,8 +40,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('./assets/styles/reset.scss');
-@import url('./assets/styles/common.scss');
+@import './assets/styles/reset.scss';
+@import './assets/styles/common.scss';
 
 html, body {
   height: 100%;
@@ -52,6 +52,5 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   // color:#4C5549;
   height: 100%;
-  background: #F1F3F2;
 }
 </style>
