@@ -26,10 +26,10 @@ jobs:
         CI: true
     - name: Run Build
       run: yarn build
-    - name: deploy
-      run: 
-        git checkout master
-        git merge release
-        git push
-      
+    - name: Deploy
+      if: success()
+      uses: crazy-max/ghaction-github-pages@v1
+      with:
+        target_branch: master
+        build_dir: docs
       
