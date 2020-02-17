@@ -116,7 +116,7 @@ export default {
   name: 'Main',
   data() {
     return {
-      message: '안냥',
+      message: '안냥1',
       fullHeight: 'height : 10px',
       show: true,
     };
