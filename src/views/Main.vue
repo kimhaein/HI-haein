@@ -3,11 +3,12 @@
     <div class="section whoamiBox">
       <h1>
         WHO AM I ?
-        <br />
-        <br />I AM
-        <br />FRONT-END
-        <br />DEVELOPER
       </h1>
+      <h2>
+        I AM<br />
+        FRONT-END<br />
+        DEVELOPER 👩🏻‍💻<br />
+      </h2>
       <div class="imgBox">
         <div></div>
       </div>
@@ -19,8 +20,9 @@
       </div>
     </div>
     <div class="section aboutBox">
+      <!-- <h2 :style="font">배움이 즐겁고 🤗<br>😘나눔이 행복한 개발자</h2> -->
       <div>
-        <h2>ABOUT</h2>
+        <h2>ABOUT 🌱</h2>
         <div>
           <h4>학력</h4>
           <span>고려대학교 세종캠퍼스 경영정보학과</span>
@@ -42,9 +44,7 @@
     </div>
     <div class="section careerBox">
       <div class="careerTitle">
-        <h2>SBCN</h2>
-        <p>증권 정보제공업</p>
-        <p>2017.07 ~ 2020.02</p>
+        <h2>CAREER</h2>
       </div>
       <div class="careerList">
         <ul>
@@ -52,18 +52,16 @@
             <h4>2020.02 - 2019.07</h4>
             <div class="thumnail"></div>
             <h5>투자의 달인 앱 리뉴얼 / SBCN</h5>
-            <p>투자 정보 제공</p>
             <p>
-              프론트 설계 및 UI 컴포넌트 개발
-              <br />회원가입, 인증, 로그인, 대시보드, 관심종목 기능 등 개발
-              <br />React-native, Redux, Redux-Saga
-              <br />
+              프론트 설계 및 UI 컴포넌트 개발<br>
+              회원가입, 인증, 로그인, 대시보드, 관심종목 기능 등 개발<br>
+              <b>React-native, Redux, Redux-Saga</b>
             </p>
             <a href="#">링크</a>
           </li>
           <li class="careerItem">
             <h4>2020.02 - 2017.07</h4>
-            <div class="thumnail"></div>
+            <div class="thumnail"> No image available 🙏🏻</div>
           </li>
           <li class="careerItem">
             <h4>2020.02 - 2017.07</h4>
@@ -84,18 +82,20 @@
       <h2>SIDE PREJECT</h2>
       <div>
         <div class="projectBox">
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ul>
+          <div class="projectList active">📷 Insta-Clone</div>
+          <div class="projectList">🌄 Tumbnail-Maker</div>
+          <div class="projectList">📔 MAD-Blog</div>
+          <div class="projectList">📝 Himentum</div>
         </div>
         <div class="projectDetailBox">
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ul>
+          <div class="thumnail"></div>
+          <h5>인스타 그램 클론 코딩 </h5>
+          <p>
+            - Pug, Sass를 사용하여 프로젝트 마크업 및 스타일 작업<br>
+            - 회원가입, 로그인, 회원상세, 게시글 상세, 댓글 기능 등 개발<br>
+            <b>Node.js, MySQL, Pug, Sass</b>
+          </p>
+          <a href="#">링크</a>
         </div>
       </div>
     </div>
@@ -116,8 +116,8 @@ export default {
   name: 'Main',
   data() {
     return {
-      message: '안냥2',
-      fullHeight: 'height : 10px',
+      message: '안냥',
+      font: 'font-size : 60px; text-align:right;',
       show: true,
     };
   },
@@ -138,10 +138,18 @@ export default {
 
 .whoamiBox {
   h1 {
-    position: fixed;
-    margin-top:50px;
-    @include positionVcenter(588px);
+    @include positionVcenter(533px);
     @include title01();
+    position: absolute;
+    margin-top:80px;
+  }
+  h2 {
+    @include positionVcenter(676px);
+    @include positionHcenter(330px);
+    @include title01();
+    position: fixed;
+    padding-top:30px;
+    line-height:1.1em
   }
   div {
     width: 50%;
@@ -172,7 +180,7 @@ export default {
     position: relative;
     width: 30%;
     height: 70%;
-    margin: 0px 15%;
+    margin-right: 15%;
     background: $colorBg;
     border: 10px solid $colorPoint;
     box-shadow: 10px 10px 3px $colorShadow;
@@ -198,23 +206,29 @@ export default {
 
 .careerBox {
   display: flex;
+  justify-content: space-between;
   background: $colorBg;
   .careerTitle {
-    width: 25%;
-    text-align: right;
-    background: $colorMain;
     @include flexJustifyCenter();
     flex-direction: column;
-    padding-right: 30px;
+    align-self: center;
+    width: 450px;
+    height: 70%;
+    background: $colorSub02;
+    margin-left:5%;
+    box-shadow: 10px 10px 3px $colorShadow;
     h2 {
       font-size: 60px;
       font-weight: bold;
+      text-align: center;
+      color: $colorBg
     }
   }
   .careerList {
     align-self: center;
     overflow: scroll;
-    height: 550px;
+    height: 70%;
+    padding-left:50px;
     ul {
       width: 200%;
       padding: 0px 10px;
@@ -229,9 +243,11 @@ export default {
           font-weight: bold;
         }
         .thumnail {
+          @include flexAllCenter();
           height: 200px;
-          background: $colorSub01;
+          background: $colorMain;
           border-radius: 10px;
+          font-size: 20px;
         }
         h5 {
           margin-top: 20px;
@@ -242,6 +258,7 @@ export default {
         }
         p {
           line-height: 1.8em;
+          margin-bottom: 10px;
         }
       }
     }
@@ -252,31 +269,85 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   @include backgroundImg("../assets/imgs/bg.jpg");
   h2 {
-    position: absolute;
-    top:0;
-    left:0;
-    font-size: 100px;
+    font-size: 80px;
     font-weight: bold;
+    text-align: center;
   }
   > div {
   display: flex;
+  width: 80%;
+  height: 75%;
   align-items: center;
   justify-content: center;
-  margin-top: 80px;
     .projectBox {
-      width: 400px;
-      height: 520px;
+      @include flexAlignCenter();
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30%;
+      height: 80%;
       background: $colorBg;
       margin-right: 50px;
+      padding: 20px 0;
       box-shadow: 5px 5px 3px $colorShadow;
+      box-sizing: border-box;
+      .projectList {
+        position: relative;
+        font-size: 30px;
+        font-weight:bold;
+        cursor: pointer;
+        z-index: 1;
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom:0;
+          left:0;
+          width: 0px;
+          height:10px;
+          background: $colorMain;
+          z-index: -1;
+          transition: all 200ms ease-out;
+        }
+        &:hover {
+          color:$colorSub02;
+           &:before {
+            width: 100%;
+           }
+        }
+        &.active {
+          color:$colorSub02;
+          &:before {
+            width: 100%;
+          }
+        }
+      }
     }
     .projectDetailBox {
-      width: 600px;
-      height: 520px;
+      text-align: center;
+      width: 50%;
+      height: 80%;
+      padding:50px;
       background: $colorBg;
       box-shadow: 5px 5px 3px $colorShadow;
+      box-sizing: border-box;
+      .thumnail {
+        width: 80%;
+        height: 60%;
+        margin: 0 auto;
+        background: $colorMain;
+      }
+      h5 {
+        font-size: 25px;
+        font-weight: bold;
+        margin:20px 0 15px;
+      }
+      p {
+        line-height: 1.5em;
+        margin-bottom: 10px;
+      }
     }
   }
 }
