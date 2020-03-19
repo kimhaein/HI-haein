@@ -20,76 +20,70 @@
       </div>
     </div>
     <div class="section aboutBox">
-      <!-- <h2 :style="font">배움이 즐겁고 🤗<br>😘나눔이 행복한 개발자</h2> -->
+      <div class="photo"></div>
       <div>
-        <h2>ABOUT 🌱</h2>
+        <h2>ABOUT ME 🙋🏻</h2>
         <div>
           <h4>학력</h4>
-          <span>고려대학교 세종캠퍼스 경영정보학과</span>
+          <p>
+            - 고려대학교 세종캠퍼스 / 경영정보학과 / 2017.08 졸업
+            <br>- 동양미래대학교 / e-비즈니스학과 / 2015.02 졸업
+          </p>
         </div>
         <div>
           <h4>경력</h4>
-          <span>SBCN / 프론트엔드 개발자 / 2017.07 ~ 2020.02 (2년 6개월)</span>
+          <p>- SBCN / 프론트엔드 개발자 / 2017.07 ~ 2020.02 (2년 6개월)</p>
         </div>
-        <p>
-          개발 언어 : JavaScript(ES6+), HTML5, CSS3, Sass
-          <br />프레임워크 / 라이브러리 : Express.js, React.js, React Native, Redux, Redux-Saga
-          <br />DBMS : MySQL, MariaDB
-          <br />서버 : Node.js
-          <br />도구, DevOps : GitHub, Swagger, Bitbucket, Jira, Confluence
-          <br />관심 기술 : Vue.js, TypeScript, Python / Jest, Jenkins / PWA
-          <br />
-        </p>
+        <div>
+          <h4>보유 기술</h4>
+          <p>
+            - 개발 언어 : JavaScript(ES6+), HTML5, CSS3, Sass
+            <br>- 프레임워크 / 라이브러리 : Express.js, React.js, React Native, Redux, Redux-Saga
+            <br>- DBMS : MySQL, MariaDB
+            <br>- 서버 : Node.js
+            <br>- 도구, DevOps : GitHub, Bitbucket, Jira, Confluence
+            <br>- 관심 기술 : Vue.js, TypeScript, Python / Jest, Jenkins / PWA
+            <br>
+          </p>
+        </div>
+        <div>
+          <h4>관심 기술</h4>
+          <p>
+            - Vue.js, TypeScript, Python / Jest, Jenkins / PWA
+          </p>
+        </div>
       </div>
     </div>
-    <div class="section careerBox">
+    <div class="section careerBox" v-if="careerList.length > 0">
       <div class="careerTitle">
-        <h2>CAREER</h2>
+        <h2>CAREER 🌱</h2>
       </div>
       <div class="careerList">
         <ul>
-          <li class="careerItem">
-            <h4>2020.02 - 2019.07</h4>
-            <div class="thumnail"></div>
-            <h5>투자의 달인 앱 리뉴얼 / SBCN</h5>
+          <li v-for="item in careerList"  v-bind:key="item.title" class="careerItem">
+            <h4>{{item.startDate}} - {{item.endDate}}</h4>
+            <div class="thumnail">{{item.thumnail}}</div>
+            <h5>{{item.title}} / {{item.company}}</h5>
             <p>
-              프론트 설계 및 UI 컴포넌트 개발<br>
-              회원가입, 인증, 로그인, 대시보드, 관심종목 기능 등 개발<br>
-              <b>React-native, Redux, Redux-Saga</b>
+              {{item.contents}}
+              <b>{{item.tech.join(', ')}}</b>
             </p>
-            <a href="#">링크</a>
-          </li>
-          <li class="careerItem">
-            <h4>2020.02 - 2017.07</h4>
-            <div class="thumnail"> No image available 🙏🏻</div>
-          </li>
-          <li class="careerItem">
-            <h4>2020.02 - 2017.07</h4>
-            <div class="thumnail"></div>
-          </li>
-          <li class="careerItem">
-            <h4>2020.02 - 2017.07</h4>
-            <div class="thumnail"></div>
-          </li>
-          <li class="careerItem">
-            <h4>2020.02 - 2017.07</h4>
-            <div class="thumnail"></div>
+            <a v-bind:href="item.link">링크</a>
           </li>
         </ul>
       </div>
     </div>
-    <div class="section sideProjectBox">
-      <h2>SIDE PREJECT</h2>
+    <div class="section sideProjectBox" v-if="projectList.length > 0">
+      <h2>SIDE PREJECT 🎉</h2>
       <div>
         <div class="projectBox">
-          <div class="projectList active">📷 Insta-Clone</div>
-          <div class="projectList">🌄 Tumbnail-Maker</div>
-          <div class="projectList">📔 MAD-Blog</div>
-          <div class="projectList">📝 Himentum</div>
+          <div v-for="(item, index) in projectList" :key="item.id"  v-on:click="check(index)" :class="{active: (index===activeProject)?true:false}" class="projectList" >
+            {{item.icon}} {{item.id}}
+          </div>
         </div>
         <div class="projectDetailBox">
           <div class="thumnail"></div>
-          <h5>인스타 그램 클론 코딩 </h5>
+          <h5>{{projectList[activeProject].title}}</h5>
           <p>
             - Pug, Sass를 사용하여 프로젝트 마크업 및 스타일 작업<br>
             - 회원가입, 로그인, 회원상세, 게시글 상세, 댓글 기능 등 개발<br>
@@ -99,9 +93,21 @@
         </div>
       </div>
     </div>
+    <div class="section activities">
+      <div class="section">
+        <h2>ACTIVITIES 🎪</h2>
+        <div>
+          <ul>
+            <li>스터디 활동</li>
+            <li>스터디 활동</li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <div class="section contactBox">
       <div class="footer"></div>
     </div>
+
     <!-- <h1>{{ msg }}</h1>
     <h1 v-if="isTrue">보인다</h1>
     <h1 v-else>안보인다</h1>
@@ -119,7 +125,103 @@ export default {
       message: '안냥',
       font: 'font-size : 60px; text-align:right;',
       show: true,
+      careerList: [
+        {
+          startDate: '2010.09',
+          endDate: '2019.10',
+          company: 'SBCN',
+          thumnail: 'No image available 🙏🏻',
+          title: '투자의 달인',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
+        },
+        {
+          startDate: '2010.09',
+          endDate: '2019.10',
+          company: 'SBCN',
+          thumnail: '',
+          title: '투자의 달인2',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
+        },
+        {
+          startDate: '2010.09',
+          endDate: '2019.10',
+          company: 'SBCN',
+          thumnail: '',
+          title: '투자의 달인2',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
+        },
+        {
+          startDate: '2010.09',
+          endDate: '2019.10',
+          company: 'SBCN',
+          thumnail: '',
+          title: '투자의 달인2',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
+        },
+        {
+          startDate: '2010.09',
+          endDate: '2019.10',
+          company: 'SBCN',
+          thumnail: '',
+          title: '투자의 달인2',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
+        },
+      ],
+      activeProject: 0,
+      projectList: [
+        {
+          id: 'Insta-Clone',
+          thumnail: 'No image available 🙏🏻',
+          icon: '📷',
+          title: '인스타 그램 클론 코딩',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
+        },
+        {
+          id: 'Tumbnail-Maker',
+          thumnail: 'No image available 🙏🏻',
+          icon: '🌄',
+          title: '이미지 메이커',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
+        },
+        {
+          id: 'MAD-Blog',
+          thumnail: 'No image available 🙏🏻',
+          icon: '📔',
+          title: '블로그',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
+        },
+        {
+          id: 'Himentum',
+          thumnail: 'No image available 🙏🏻',
+          icon: '📝',
+          title: '모멘텀 클론 코딩',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
+        },
+      ],
     };
+  },
+  methods: {
+    check(target) {
+      this.activeProject = target;
+    },
   },
 };
 </script>
@@ -141,14 +243,14 @@ export default {
     @include positionVcenter(533px);
     @include title01();
     position: absolute;
-    margin-top:80px;
+    margin-top:90px;
   }
   h2 {
     @include positionVcenter(676px);
     @include positionHcenter(330px);
     @include title01();
     position: fixed;
-    padding-top:30px;
+    padding-top:40px;
     line-height:1.1em
   }
   div {
@@ -163,7 +265,7 @@ export default {
       margin-top: 100px;
       background: $colorSub02;
       box-shadow: 10px 10px 3px $colorShadow;
-      // @include backgroundImg($url : "../assets/imgs/hi01.jpg", $size : contain);
+      // @include backgroundImg($url : "/static/imgs/hi01.jpg", $size : contain);
     }
   }
   .textBox {
@@ -174,33 +276,37 @@ export default {
 .aboutBox {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  @include backgroundImg("../assets/imgs/bg02.jpg");
+  justify-content: space-around;
+  @include backgroundImg("/static/imgs/bg02.jpg");
+  .photo {
+    width: 300px;
+    height: 340px;
+    background-image: url('/static/imgs/hi03.png');
+    background-size: cover;
+    background-position: center;
+  }
   > div {
     position: relative;
-    width: 30%;
-    height: 70%;
-    margin-right: 15%;
+    width: 38%;
+    height: 75%;
+    // margin-right: 15%;
+    padding: 0 20px;
     background: $colorBg;
     border: 10px solid $colorPoint;
     box-shadow: 10px 10px 3px $colorShadow;
-
     h2 {
       margin: 30px 20px 20px;
       font-size: 60px;
       font-weight: bold;
     }
-  }
-  div::before {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: -60px;
-    right: -60px;
-    width: 150px;
-    height: 150px;
-    background: $colorPoint;
-     box-shadow: 10px 10px 3px $colorShadow;
+    h4 {
+      margin:15px 0 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    p {
+      line-height: 25px;
+    }
   }
 }
 
@@ -259,6 +365,10 @@ export default {
         p {
           line-height: 1.8em;
           margin-bottom: 10px;
+          b {
+            display: block;
+            font-weight: bold;
+          }
         }
       }
     }
@@ -266,26 +376,24 @@ export default {
 }
 
 .sideProjectBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flexAllCenter();
   flex-direction: column;
-  @include backgroundImg("../assets/imgs/bg.jpg");
+  @include backgroundImg("/static/imgs/bg.jpg");
   h2 {
     font-size: 80px;
     font-weight: bold;
     text-align: center;
   }
   > div {
-  display: flex;
-  width: 80%;
-  height: 75%;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    width: 80%;
+    height: 75%;
+    align-items: center;
+    justify-content: center;
     .projectBox {
       @include flexAlignCenter();
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
       width: 30%;
       height: 80%;
       background: $colorBg;
@@ -352,26 +460,51 @@ export default {
   }
 }
 
+.activities {
+  @include flexAllCenter();
+  > div {
+    @include flexAlignCenter();
+    flex-direction: column;
+    background-image:url('/static/imgs/point01.png');
+    background-size: 110%;
+    background-position: center;
+    background-repeat: no-repeat;
+    h2 {
+      margin: 80px 0 25px;
+      font-size: 80px;
+      font-weight: bold;
+      text-align: center;
+      color:$colorBg;
+    }
+    > div {
+      width: 70%;
+      height: 65%;
+      padding: 30px;
+      box-sizing: border-box;;
+      box-shadow: 5px 5px 3px $colorShadow;
+      border-radius: 30px;
+      background: $colorBg;
+    }
+  }
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   display: block;
+  //   width: 100%;
+  //   height: 90%;
+  //   background: $colorBg;
+  //   z-index: 0;
+  // }
+
+}
+
 .contactBox {
     .footer {
       align-self: flex-end;
       width: 90%;
       height: 40%;
       margin-left: 10%;
-      background: $colorPoint;
+      background: $colorSub02;
     }
 }
-
-
-// #point {
-//   position: fixed;
-//   bottom:30px;
-//   right:30px;
-//   width: 400px;
-//   height:400px;
-//   background-image:url('../assets/imgs/point01.png');
-//   background-size: contain;
-//   background-repeat: no-repeat;
-
-// }
 </style>

@@ -1,1 +1,2 @@
-export { default as MainHeader } from './MainHeader';
+/* eslint-disable */
+export { default as MainHeader } from "./MainHeader";
