@@ -36,9 +36,9 @@ $colorShadow:rgba($colorBlack, 0.1);
   left:50%;
   margin-left: -($width/2);
 }
-@mixin positionHcenter($width) {
+@mixin positionHcenter($height) {
   top:50%;
-  margin-top: -($width/2);
+  margin-top: -($height/2);
 }
 
 @mixin flexAllCenter() {
