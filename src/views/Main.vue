@@ -170,17 +170,16 @@
 import * as firebase from 'firebase/app';
 
 export default {
-  name: "Main",
+  name: 'Main',
   data() {
     return {
       // users: a,
-      message: "안냥",
-      font: "font-size : 60px; text-align:right;",
+      message: '안냥',
+      font: 'font-size : 60px; text-align:right;',
       show: true,
       careerList: [],
       activeProject: 0,
-
-      projectList: []
+      projectList: [],
     };
   },
   mounted() {
@@ -189,15 +188,15 @@ export default {
   },
   methods: {
     async getData(collection, target) {
-      const data = await firebase.firestore().collection(collection).where("isVisible", "==", true).get();
+      const data = await firebase.firestore().collection(collection).where('isVisible', '==', true).get();
       data.forEach((doc) => {
         target.push(doc.data());
       });
     },
     check(target) {
       this.activeProject = target;
-    }
-  }
+    },
+  },
 };
 </script>
 

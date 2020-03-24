@@ -8,7 +8,7 @@
         </a>
       </span>
       <span>
-        <a href='../../assets/kimhaein-resume.pdf' target='_blank' title='이력서 다운로드'>
+        <a href='static/kimhaein-resume.pdf' target='_blank' title='이력서 다운로드'>
           <img src='../../img/resume.png' alt='이력서 다운로드' />
         </a>
       </span>

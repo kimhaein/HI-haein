@@ -3,9 +3,8 @@
 docs/
 
 # local env files
-.env.local
+.env
 .env.*.local
-utill/config.js
 
 # Log files
 npm-debug.log*

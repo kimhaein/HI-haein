@@ -1,1 +1,7 @@
-export const FIREBASE_CONFIG = {};
+console.log(process.env);
+
+export const FIREBASE = {
+
+};
+
+export default null;

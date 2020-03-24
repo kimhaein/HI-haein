@@ -1,6 +1,5 @@
-import Vue from "vue";
-import * as firebase from "firebase";
-import "firebase/firestore";
-import { FIREBASE_CONFIG } from "./config";
+import * as firebase from 'firebase/app';
+import 'firebase/firestore';
+import { FIREBASE } from './config';
 
-firebase.initializeApp(FIREBASE_CONFIG);
+firebase.initializeApp(FIREBASE);
