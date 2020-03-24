@@ -1,11 +1,11 @@
 .DS_Store
-node_modules/
-/docs/
+/node_modules/
+docs/
 
 # local env files
 .env.local
 .env.*.local
-./src/utill/config.js
+utill/config.js
 
 # Log files
 npm-debug.log*
