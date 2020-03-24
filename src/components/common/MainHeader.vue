@@ -1,15 +1,15 @@
 <template>
-  <div id="header">
+  <div id='header'>
     <h1>＜Portfolio /＞</h1>
     <div>
       <span>
-        <a href="https://github.com/kimhaein" target="_blank" title="깃허브 계정으로 이동">
-          <img src="/static/imgs/github.png" alt="깃허브 계정으로 이동" />
+        <a href='https://github.com/kimhaein' target='_blank' title='깃허브 계정으로 이동'>
+          <img src='../../img/github.png' alt='깃허브 계정으로 이동' />
         </a>
       </span>
       <span>
-        <a href="/static/kimhaein-resume.pdf" target="_blank" title="이력서 다운로드">
-          <img src="/static/imgs/resume.png" alt="이력서 다운로드" />
+        <a href='../../assets/kimhaein-resume.pdf' target='_blank' title='이력서 다운로드'>
+          <img src='../../img/resume.png' alt='이력서 다운로드' />
         </a>
       </span>
     </div>
@@ -18,13 +18,13 @@
 
 <script>
 export default {
-  name: "main-header",
+  name: 'main-header',
   props: {
     message: {
       type: String, // 데이터 타입
       required: true, // 반드시 필요하다는 의미
-      default: "TEST" // 값을 전달하지 않을 경우 디폴트값 설정 가능
-    }
+      default: 'TEST', // 값을 전달하지 않을 경우 디폴트값 설정 가능
+    },
   },
   data() {
     return {};
@@ -32,15 +32,15 @@ export default {
   computed: {
     sayHellow() {
       return `${this.message}님 환영합니다.`;
-    }
-  }
+    },
+  },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss">
-@import "../../assets/styles/theme.scss";
-@import "../../assets/styles/main.scss";
+<!-- Add 'scoped' attribute to limit CSS to this component only -->
+<style lang='scss'>
+@import '../../assets/styles/theme.scss';
+@import '../../assets/styles/main.scss';
 
 #header {
   @include flexAlignCenter();

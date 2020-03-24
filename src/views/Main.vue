@@ -1,24 +1,25 @@
 <template>
-  <div id="main">
-    <div class="section whoamiBox">
+  <div id='main'>
+    <div class='section whoamiBox'>
       <h1>WHO AM I ?</h1>
       <h2>
         I AM
-        <br />FRONT-END <br />DEVELOPER 👩🏻‍💻
+        <br />FRONT-END
+        <br />DEVELOPER 👩🏻‍💻
         <br />
       </h2>
-      <div class="imgBox">
+      <div class='imgBox'>
         <div></div>
       </div>
-      <div class="textBox">
+      <div class='textBox'>
         <!-- <div>
           <h2>안녕하세요 :-) 프론트엔드</h2>
           <p>안녕 반가워요 꺄륵꺌구</p>
         </div>-->
       </div>
     </div>
-    <div class="section aboutBox">
-      <div class="photo"></div>
+    <div class='section aboutBox'>
+      <div class='photo'></div>
       <div>
         <h2>ABOUT ME 🙋🏻</h2>
         <div>
@@ -37,8 +38,11 @@
           <p>
             - 개발 언어 : JavaScript(ES6+), HTML5, CSS3, Sass
             <br />- 프레임워크 / 라이브러리 : Express.js, React.js, React
-            Native, Redux, Redux-Saga <br />- DBMS : MySQL, MariaDB <br />- 서버
-            : Node.js <br />- 도구, DevOps : GitHub, Bitbucket, Jira, Confluence
+            Native, Redux, Redux-Saga
+            <br />- DBMS : MySQL, MariaDB
+            <br />- 서버
+            : Node.js
+            <br />- 도구, DevOps : GitHub, Bitbucket, Jira, Confluence
             <br />- 관심 기술 : Vue.js, TypeScript, Python / Jest, Jenkins / PWA
             <br />
           </p>
@@ -49,45 +53,39 @@
         </div>
       </div>
     </div>
-    <div class="section careerBox" v-if="careerList.length > 0">
-      <div class="careerTitle">
+    <div class='section careerBox' v-if='careerList.length > 0'>
+      <div class='careerTitle'>
         <h2>CAREER 🌱</h2>
       </div>
-      <div class="careerList">
+      <div class='careerList'>
         <ul>
-          <li
-            v-for="item in careerList"
-            v-bind:key="item.title"
-            class="careerItem"
-          >
+          <li v-for='item in careerList' v-bind:key='item.title' class='careerItem'>
             <h4>{{ item.startDate }} - {{ item.endDate }}</h4>
-            <div class="thumnail">{{ item.thumnail }}</div>
+            <div class='thumnail'>{{ item.thumnail }}</div>
             <h5>{{ item.title }} / {{ item.company }}</h5>
             <p>
               {{ item.contents }}
-              <b>{{ item.tech.join(", ") }}</b>
+              <b>{{ item.tech.join(', ') }}</b>
             </p>
-            <a v-bind:href="item.link">링크</a>
+            <a v-bind:href='item.link'>링크</a>
           </li>
         </ul>
       </div>
     </div>
-    <div class="section sideProjectBox" v-if="projectList.length > 0">
+    <div class='section sideProjectBox' v-if='projectList.length > 0'>
       <h2>SIDE PREJECT 🎉</h2>
       <div>
-        <div class="projectBox">
+        <div class='projectBox'>
           <div
-            v-for="(item, index) in projectList"
-            :key="item.id"
-            v-on:click="check(index)"
-            :class="{ active: index === activeProject ? true : false }"
-            class="projectList"
-          >
-            {{ item.icon }} {{ item.id }}
-          </div>
+            v-for='(item, index) in projectList'
+            :key='item.id'
+            v-on:click='check(index)'
+            :class='{ active: index === activeProject ? true : false }'
+            class='projectList'
+          >{{ item.icon }} {{ item.id }}</div>
         </div>
-        <div class="projectDetailBox">
-          <div class="thumnail"></div>
+        <div class='projectDetailBox'>
+          <div class='thumnail'></div>
           <h5>{{ projectList[activeProject].title }}</h5>
           <p>
             - Pug, Sass를 사용하여 프로젝트 마크업 및 스타일 작업
@@ -95,24 +93,24 @@
             <br />
             <b>Node.js, MySQL, Pug, Sass</b>
           </p>
-          <a href="#">링크</a>
+          <a href='#'>링크</a>
         </div>
       </div>
     </div>
-    <div class="section activitiesBox">
-      <div class="section">
+    <div class='section activitiesBox'>
+      <div class='section'>
         <h2>ACTIVITIES 🎪</h2>
         <div>
-          <ul class="activityList">
-            <li class="activityItem">
-              <div class="tumbnail">img</div>
-              <div class="contents">
+          <ul class='activityList'>
+            <li class='activityItem'>
+              <div class='tumbnail'>img</div>
+              <div class='contents'>
                 <h4>스터디활동</h4>
                 <p>dkssudasldjal</p>
                 <p>dkssudasldjal</p>
               </div>
             </li>
-            <li class="activityItem">
+            <li class='activityItem'>
               <div>img</div>
               <div>
                 <h4>스터디활동</h4>
@@ -120,7 +118,7 @@
                 <p>dkssudasldjal</p>
               </div>
             </li>
-            <li class="activityItem">
+            <li class='activityItem'>
               <div>img</div>
               <div>
                 <h4>스터디활동</h4>
@@ -128,7 +126,7 @@
                 <p>dkssudasldjal</p>
               </div>
             </li>
-            <li class="activityItem">
+            <li class='activityItem'>
               <div>img</div>
               <div>
                 <h4>스터디활동</h4>
@@ -136,7 +134,7 @@
                 <p>dkssudasldjal</p>
               </div>
             </li>
-            <li class="activityItem">
+            <li class='activityItem'>
               <div>img</div>
               <div>
                 <h4>스터디활동</h4>
@@ -144,7 +142,7 @@
                 <p>dkssudasldjal</p>
               </div>
             </li>
-            <li class="activityItem">
+            <li class='activityItem'>
               <div>img</div>
               <div>
                 <h4>스터디활동</h4>
@@ -156,141 +154,141 @@
         </div>
       </div>
     </div>
-    <div class="section contactBox">
-      <div class="footer"></div>
+    <div class='section contactBox'>
+      <div class='footer'></div>
     </div>
 
     <!-- <h1>{{ msg }}</h1>
-    <h1 v-if="isTrue">보인다</h1>
+    <h1 v-if='isTrue'>보인다</h1>
     <h1 v-else>안보인다</h1>
-    <h1 v-show="show">안녕하세요!</h1>
-    <button @click="onClick">Click!</button>-->
-    <div id="point"></div>
+    <h1 v-show='show'>안녕하세요!</h1>
+    <button @click='onClick'>Click!</button>-->
+    <div id='point'></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Main",
+  name: 'Main',
   data() {
     return {
-      message: "안냥",
-      font: "font-size : 60px; text-align:right;",
+      message: '안냥',
+      font: 'font-size : 60px; text-align:right;',
       show: true,
       careerList: [
         {
-          startDate: "2010.09",
-          endDate: "2019.10",
-          company: "SBCN",
-          thumnail: "No image available 🙏🏻",
-          title: "투자의 달인",
-          contents: "dsdssd",
-          tech: ["react-native", "html"],
-          link: "https://www.naver.com/"
+          startDate: '2010.09',
+          endDate: '2019.10',
+          company: 'SBCN',
+          thumnail: 'No image available 🙏🏻',
+          title: '투자의 달인',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
         },
         {
-          startDate: "2010.09",
-          endDate: "2019.10",
-          company: "SBCN",
-          thumnail: "",
-          title: "투자의 달인2",
-          contents: "dsdssd",
-          tech: ["react-native", "html"],
-          link: "https://www.naver.com/"
+          startDate: '2010.09',
+          endDate: '2019.10',
+          company: 'SBCN',
+          thumnail: '',
+          title: '1 달인2',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
         },
         {
-          startDate: "2010.09",
-          endDate: "2019.10",
-          company: "SBCN",
-          thumnail: "",
-          title: "투자의 달인2",
-          contents: "dsdssd",
-          tech: ["react-native", "html"],
-          link: "https://www.naver.com/"
+          startDate: '2010.09',
+          endDate: '2019.10',
+          company: 'SBCN',
+          thumnail: '',
+          title: '2 달인2',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
         },
         {
-          startDate: "2010.09",
-          endDate: "2019.10",
-          company: "SBCN",
-          thumnail: "",
-          title: "투자의 달인2",
-          contents: "dsdssd",
-          tech: ["react-native", "html"],
-          link: "https://www.naver.com/"
+          startDate: '2010.09',
+          endDate: '2019.10',
+          company: 'SBCN',
+          thumnail: '',
+          title: '3 달인2',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
         },
         {
-          startDate: "2010.09",
-          endDate: "2019.10",
-          company: "SBCN",
-          thumnail: "",
-          title: "투자의 달인2",
-          contents: "dsdssd",
-          tech: ["react-native", "html"],
-          link: "https://www.naver.com/"
-        }
+          startDate: '2010.09',
+          endDate: '2019.10',
+          company: 'SBCN',
+          thumnail: '',
+          title: '3',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
+        },
       ],
       activeProject: 0,
       projectList: [
         {
-          id: "HI-Haein",
-          thumnail: "No image available 🙏🏻",
-          icon: "📷",
-          title: "포트폴리오 사이트",
-          contents: "dsdssd",
-          tech: ["react.js", "html"],
-          link: "https://www.naver.com/"
+          id: 'HI-Haein',
+          thumnail: 'No image available 🙏🏻',
+          icon: '📷',
+          title: '포트폴리오 사이트',
+          contents: 'dsdssd',
+          tech: ['react.js', 'html'],
+          link: 'https://www.naver.com/',
         },
         {
-          id: "Insta-Clone",
-          thumnail: "No image available 🙏🏻",
-          icon: "📷",
-          title: "인스타 그램 클론 코딩",
-          contents: "dsdssd",
-          tech: ["react-native", "html"],
-          link: "https://www.naver.com/"
+          id: 'Insta-Clone',
+          thumnail: 'No image available 🙏🏻',
+          icon: '📷',
+          title: '인스타 그램 클론 코딩',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
         },
         {
-          id: "Tumbnail-Maker",
-          thumnail: "No image available 🙏🏻",
-          icon: "🌄",
-          title: "이미지 메이커",
-          contents: "dsdssd",
-          tech: ["react-native", "html"],
-          link: "https://www.naver.com/"
+          id: 'Tumbnail-Maker',
+          thumnail: 'No image available 🙏🏻',
+          icon: '🌄',
+          title: '이미지 메이커',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
         },
         {
-          id: "MAD-Blog",
-          thumnail: "No image available 🙏🏻",
-          icon: "📔",
-          title: "블로그",
-          contents: "dsdssd",
-          tech: ["react-native", "html"],
-          link: "https://www.naver.com/"
+          id: 'MAD-Blog',
+          thumnail: 'No image available 🙏🏻',
+          icon: '📔',
+          title: '블로그',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
         },
         {
-          id: "Himentum",
-          thumnail: "No image available 🙏🏻",
-          icon: "📝",
-          title: "모멘텀 클론 코딩",
-          contents: "dsdssd",
-          tech: ["react-native", "html"],
-          link: "https://www.naver.com/"
-        }
-      ]
+          id: 'Himentum',
+          thumnail: 'No image available 🙏🏻',
+          icon: '📝',
+          title: '모멘텀 클론 코딩',
+          contents: 'dsdssd',
+          tech: ['react-native', 'html'],
+          link: 'https://www.naver.com/',
+        },
+      ],
     };
   },
   methods: {
     check(target) {
       this.activeProject = target;
-    }
-  }
+    },
+  },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-@import "../assets/styles/theme.scss";
-@import "../assets/styles/main.scss";
+<!-- Add 'scoped' attribute to limit CSS to this component only -->
+<style scoped lang='scss'>
+@import '../assets/styles/theme.scss';
+@import '../assets/styles/main.scss';
 
 .section {
   display: flex;
@@ -326,7 +324,7 @@ export default {
       margin-top: 100px;
       background: $colorSub02;
       box-shadow: 10px 10px 3px $colorShadow;
-      // @include backgroundImg($url : "/static/imgs/hi01.jpg", $size : contain);
+      // @include backgroundImg($url : '../assets/img/hi01.jpg', $size : contain);
     }
   }
   .textBox {
@@ -338,11 +336,11 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  @include backgroundImg("/static/imgs/bg02.jpg");
+  @include backgroundImg('../img/bg02.jpg');
   .photo {
     width: 300px;
     height: 340px;
-    background-image: url("/static/imgs/hi03.png");
+    background-image: url('../img/bg02.jpg');
     background-size: cover;
     background-position: center;
   }
@@ -439,7 +437,7 @@ export default {
 .sideProjectBox {
   @include flexAllCenter();
   flex-direction: column;
-  @include backgroundImg("/static/imgs/bg.jpg");
+  @include backgroundImg('../img/bg.jpg');
   h2 {
     font-size: 80px;
     font-weight: bold;
@@ -469,7 +467,7 @@ export default {
         cursor: pointer;
         z-index: 1;
         &:before {
-          content: "";
+          content: '';
           display: block;
           position: absolute;
           bottom: 0;
@@ -526,7 +524,7 @@ export default {
   > div {
     @include flexAlignCenter();
     flex-direction: column;
-    background-image: url("/static/imgs/point01.png");
+    background-image: url('../img/point01.png');
     background-size: 110%;
     background-position: center;
     background-repeat: no-repeat;
@@ -562,7 +560,7 @@ export default {
         border-radius: 10px;
         &:hover {
           &::after {
-            content: "";
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
