@@ -8,7 +8,7 @@
         </a>
       </span>
       <span>
-        <a href='static/kimhaein-resume.pdf' target='_blank' title='이력서 다운로드'>
+        <a :href='resume' target='_blank' title='이력서 다운로드'>
           <img src='../../img/resume.png' alt='이력서 다운로드' />
         </a>
       </span>
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import * as firebase from 'firebase/app';
+
 export default {
   name: 'main-header',
   props: {
@@ -27,7 +29,19 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      resume: '',
+    };
+  },
+  mounted() {
+    this.getStorageFiles('files/kimhaein-resume.pdf');
+  },
+  methods: {
+    async getStorageFiles(files) {
+      const storageRef = await firebase.storage().ref();
+      const file = await storageRef.child(files).getDownloadURL();
+      this.resume = file;
+    },
   },
   computed: {
     sayHellow() {

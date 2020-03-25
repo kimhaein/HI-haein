@@ -54,7 +54,7 @@
         <h2>CAREER 🌱</h2>
       </div>
       <div class="careerList">
-        <ul>
+        <ul :style="{width: careerList.length * 360 + 'px'}">
           <li
             v-for="item in careerList"
             v-bind:key="item.title"
@@ -173,7 +173,6 @@ export default {
   name: 'Main',
   data() {
     return {
-      // users: a,
       message: '안냥',
       font: 'font-size : 60px; text-align:right;',
       show: true,
@@ -188,7 +187,8 @@ export default {
   },
   methods: {
     async getData(collection, target) {
-      const data = await firebase.firestore().collection(collection).where('isVisible', '==', true).get();
+      const dataRef = await firebase.firestore().collection(collection);
+      const data = await dataRef.where('isVisible', '==', true).orderBy('order', 'desc').get();
       data.forEach((doc) => {
         target.push(doc.data());
       });
@@ -310,7 +310,7 @@ export default {
     height: 70%;
     padding-left: 50px;
     ul {
-      width: 200%;
+      overflow: hidden;
       padding: 0px 10px;
       .careerItem {
         float: left;
