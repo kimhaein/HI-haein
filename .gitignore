@@ -3,6 +3,7 @@
 docs/
 
 # local env files
+src/**/config.js
 .env
 .env.*.local
 
