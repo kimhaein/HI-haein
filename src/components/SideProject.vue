@@ -1,0 +1,146 @@
+<template>
+  <div class="section sideProjectBox" v-if="projectList.length > 0">
+    <h2>SIDE PREJECT 🎉</h2>
+    <div>
+      <div class="projectBox">
+        <div
+          v-for="(item, index) in projectList"
+          :key="item.id"
+          v-on:click="check(index)"
+          :class="{ active: index === activeProject ? true : false }"
+          class="projectList"
+        >
+          {{ item.icon }} {{ item.id }}
+        </div>
+      </div>
+      <div class="projectDetailBox">
+        <div class="thumnail"></div>
+        <h5>{{ projectList[activeProject].title }}</h5>
+        <p
+          v-for="(content, index) in projectList[activeProject].contents"
+          :key="index"
+        >
+          - {{content}}
+        </p>
+        <p><b>{{projectList[activeProject].tech.join(', ')}}</b></p>
+        <a v-bind:href="projectList[activeProject].link">링크</a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'side-project',
+  props: {
+    projectList: {
+      type: Array,
+      required: true,
+      default() {
+        return [];
+      },
+    },
+  },
+  data() {
+    return {
+      activeProject: 0,
+    };
+  },
+  methods: {
+    check(target) {
+      this.activeProject = target;
+    },
+  },
+};
+</script>
+
+<!-- Add 'scoped' attribute to limit CSS to this component only -->
+<style lang='scss'>
+@import '../assets/styles/theme.scss';
+@import '../assets/styles/main.scss';
+
+.sideProjectBox {
+  @include flexAllCenter();
+  flex-direction: column;
+  @include backgroundImg("../img/bg.jpg");
+  h2 {
+    font-size: 80px;
+    font-weight: bold;
+    text-align: center;
+  }
+  > div {
+    display: flex;
+    width: 80%;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+    .projectBox {
+      @include flexAlignCenter();
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30%;
+      height: 90%;
+      background: $colorBg;
+      margin-right: 50px;
+      padding: 60px 0;
+      box-shadow: 5px 5px 3px $colorShadow;
+      box-sizing: border-box;
+      .projectList {
+        position: relative;
+        font-size: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 1;
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0px;
+          height: 10px;
+          background: $colorMain;
+          z-index: -1;
+          transition: all 200ms ease-out;
+        }
+        &:hover {
+          color: $colorSub02;
+          &:before {
+            width: 100%;
+          }
+        }
+        &.active {
+          color: $colorSub02;
+          &:before {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .projectDetailBox {
+      text-align: center;
+      width: 50%;
+      height: 90%;
+      padding: 30px;
+      background: $colorBg;
+      box-shadow: 5px 5px 3px $colorShadow;
+      box-sizing: border-box;
+      .thumnail {
+        width: 80%;
+        height: 45%;
+        margin: 0 auto;
+        background: $colorMain;
+      }
+      h5 {
+        font-size: 25px;
+        font-weight: bold;
+        margin: 30px 0 15px;
+      }
+      p {
+        line-height: 1.8em;
+      }
+    }
+  }
+}
+
+</style>

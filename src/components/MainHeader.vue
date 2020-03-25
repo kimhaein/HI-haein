@@ -4,12 +4,12 @@
     <div>
       <span>
         <a href='https://github.com/kimhaein' target='_blank' title='깃허브 계정으로 이동'>
-          <img src='../../img/github.png' alt='깃허브 계정으로 이동' />
+          <img src='../img/github.png' alt='깃허브 계정으로 이동' />
         </a>
       </span>
       <span>
         <a :href='resume' target='_blank' title='이력서 다운로드'>
-          <img src='../../img/resume.png' alt='이력서 다운로드' />
+          <img src='../img/resume.png' alt='이력서 다운로드' />
         </a>
       </span>
     </div>
@@ -21,13 +21,6 @@ import * as firebase from 'firebase/app';
 
 export default {
   name: 'main-header',
-  props: {
-    message: {
-      type: String, // 데이터 타입
-      required: true, // 반드시 필요하다는 의미
-      default: 'TEST', // 값을 전달하지 않을 경우 디폴트값 설정 가능
-    },
-  },
   data() {
     return {
       resume: '',
@@ -43,18 +36,13 @@ export default {
       this.resume = file;
     },
   },
-  computed: {
-    sayHellow() {
-      return `${this.message}님 환영합니다.`;
-    },
-  },
 };
 </script>
 
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style lang='scss'>
-@import '../../assets/styles/theme.scss';
-@import '../../assets/styles/main.scss';
+@import '../assets/styles/theme.scss';
+@import '../assets/styles/main.scss';
 
 #header {
   @include flexAlignCenter();
