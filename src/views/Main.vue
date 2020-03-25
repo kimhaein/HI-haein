@@ -1,7 +1,7 @@
 <template>
   <div id="main">
     <div class="section whoamiBox">
-      <h1>WHO AM I ?</h1>
+      <!-- <h1>WHO AM I ?</h1> -->
       <h2>
         I AM
         <br />FRONT-END <br />DEVELOPER 👩🏻‍💻
@@ -63,10 +63,13 @@
             <h4>{{ item.startDate }} - {{ item.endDate }}</h4>
             <div class="thumnail">{{ item.thumnail }}</div>
             <h5>{{ item.title }} / {{ item.company }}</h5>
-            <p>
-              {{ item.contents }}
-              <b>{{ item.tech.join(", ") }}</b>
+            <p
+              v-for="(content, index) in item.contents"
+              :key="index"
+            >
+              - {{content}}
             </p>
+            <p><b>{{ item.tech.join(", ")}}</b></p>
             <a v-bind:href="item.link">링크</a>
           </li>
         </ul>
@@ -89,65 +92,39 @@
         <div class="projectDetailBox">
           <div class="thumnail"></div>
           <h5>{{ projectList[activeProject].title }}</h5>
-          <p>
-            - {{projectList[activeProject].contents[0]}}<br />
-            <b>{{projectList[activeProject].tech.join(',')}}</b>
+          <p
+            v-for="(content, index) in projectList[activeProject].contents"
+            :key="index"
+          >
+            - {{content}}
           </p>
+          <p><b>{{projectList[activeProject].tech.join(', ')}}</b></p>
           <a v-bind:href="projectList[activeProject].link">링크</a>
         </div>
       </div>
     </div>
-    <div class="section activitiesBox">
+    <div class="section activitiesBox" v-if="activityList.length > 0">
       <div class="section">
         <h2>ACTIVITIES 🎪</h2>
         <div>
           <ul class="activityList">
-            <li class="activityItem">
+            <li
+              v-for="item in activityList"
+              :key="item.title"
+              class="activityItem"
+            >
               <div class="tumbnail">img</div>
-              <div class="contents">
-                <h4>스터디활동</h4>
-                <p>dkssudasldjal</p>
-                <p>dkssudasldjal</p>
-              </div>
-            </li>
-            <li class="activityItem">
-              <div>img</div>
-              <div>
-                <h4>스터디활동</h4>
-                <p>dkssudasldjal</p>
-                <p>dkssudasldjal</p>
-              </div>
-            </li>
-            <li class="activityItem">
-              <div>img</div>
-              <div>
-                <h4>스터디활동</h4>
-                <p>dkssudasldjal</p>
-                <p>dkssudasldjal</p>
-              </div>
-            </li>
-            <li class="activityItem">
-              <div>img</div>
-              <div>
-                <h4>스터디활동</h4>
-                <p>dkssudasldjal</p>
-                <p>dkssudasldjal</p>
-              </div>
-            </li>
-            <li class="activityItem">
-              <div>img</div>
-              <div>
-                <h4>스터디활동</h4>
-                <p>dkssudasldjal</p>
-                <p>dkssudasldjal</p>
-              </div>
-            </li>
-            <li class="activityItem">
-              <div>img</div>
-              <div>
-                <h4>스터디활동</h4>
-                <p>dkssudasldjal</p>
-                <p>dkssudasldjal</p>
+                <div class="info">
+                  <h4>{{item.title}}</h4>
+                  <p>{{item.date}}</p>
+                </div>
+                <div class="contents">
+                  <p
+                    v-for="(content, index) in item.contents"
+                    :key="index"
+                  >
+                    - {{content}}
+                  </p>
               </div>
             </li>
           </ul>
@@ -179,11 +156,13 @@ export default {
       careerList: [],
       activeProject: 0,
       projectList: [],
+      activityList: [],
     };
   },
   mounted() {
-    this.getData('project', this.projectList);
-    this.getData('career', this.careerList);
+    // this.getData('project', this.projectList);
+    // this.getData('career', this.careerList);
+    // this.getData('activity', this.activityList);
   },
   methods: {
     async getData(collection, target) {
@@ -253,11 +232,25 @@ export default {
   justify-content: space-around;
   @include backgroundImg("../img/bg02.jpg");
   .photo {
+    position: relative;
     width: 300px;
     height: 340px;
-    background-image: url("../img/bg02.jpg");
+    background-image: url("../img/hi03.png");
     background-size: cover;
     background-position: center;
+    &::before {
+      content: '김혜인 / KIM HAEIN';
+      position: absolute;
+      top:-30px;
+      left:50%;
+      margin-left: -90px;
+      padding:15px 15px;
+      background-color: rgba($colorSub01, $alpha: 0.95);
+      transform: rotate(20deg);
+      box-shadow: -3px -3px 5px rgba($colorBlack, 0.3);
+      font-weight: bold;
+      font-size: 18px;
+    }
   }
   > div {
     position: relative;
@@ -293,7 +286,7 @@ export default {
     flex-direction: column;
     align-self: center;
     width: 450px;
-    height: 70%;
+    height: 80%;
     background: $colorSub02;
     margin-left: 5%;
     box-shadow: 10px 10px 3px $colorShadow;
@@ -307,7 +300,7 @@ export default {
   .careerList {
     align-self: center;
     overflow: scroll;
-    height: 70%;
+    height: 80%;
     padding-left: 50px;
     ul {
       overflow: hidden;
@@ -338,9 +331,9 @@ export default {
         }
         p {
           line-height: 1.8em;
-          margin-bottom: 10px;
           b {
             display: block;
+            margin: 10px 0;
             font-weight: bold;
           }
         }
@@ -361,15 +354,15 @@ export default {
   > div {
     display: flex;
     width: 80%;
-    height: 75%;
+    height: 80%;
     align-items: center;
     justify-content: center;
     .projectBox {
       @include flexAlignCenter();
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-around;
       width: 30%;
-      height: 80%;
+      height: 90%;
       background: $colorBg;
       margin-right: 50px;
       padding: 60px 0;
@@ -410,25 +403,24 @@ export default {
     .projectDetailBox {
       text-align: center;
       width: 50%;
-      height: 80%;
-      padding: 50px;
+      height: 90%;
+      padding: 30px;
       background: $colorBg;
       box-shadow: 5px 5px 3px $colorShadow;
       box-sizing: border-box;
       .thumnail {
         width: 80%;
-        height: 60%;
+        height: 45%;
         margin: 0 auto;
         background: $colorMain;
       }
       h5 {
         font-size: 25px;
         font-weight: bold;
-        margin: 20px 0 15px;
+        margin: 30px 0 15px;
       }
       p {
-        line-height: 1.5em;
-        margin-bottom: 10px;
+        line-height: 1.8em;
       }
     }
   }
@@ -453,7 +445,7 @@ export default {
     > div {
       overflow: scroll;
       width: 70%;
-      height: 65%;
+      height: 67%;
       padding: 20px 30px;
       box-sizing: border-box;
       box-shadow: 5px 5px 3px $colorShadow;
@@ -468,35 +460,47 @@ export default {
       .activityItem {
         @include flexAlignCenter();
         position: relative;
+        overflow: hidden;
         width: 48%;
         height: 200px;
         margin: 20px 0;
         border: 1px solid $colorPoint;
         border-radius: 10px;
-        &:hover {
-          &::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-            background: $colorBg;
-          }
-        }
         .tumbnail {
-          width: 200px;
+          width: 250px;
           height: 200px;
-          border-radius: 10px;
-          background-color: white;
+          background-color: red;
         }
-        .contents {
+        .info {
+          flex:1;
           padding: 20px;
+          text-align: center;
           h4 {
             margin-bottom: 20px;
             font-weight: bold;
             font-size: 20px;
+          }
+        }
+        .contents {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          padding: 0px 20px;
+          border-radius: 10px;
+          box-sizing: border-box;
+          background: white;
+          p {
+            margin: 5px 0px;
+            line-height: 1.5em;
+          }
+        }
+        &:hover {
+          .contents {
+            @include flexJustifyCenter();
+            flex-direction: column;
           }
         }
       }
