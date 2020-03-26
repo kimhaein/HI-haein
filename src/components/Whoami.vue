@@ -16,16 +16,6 @@
 <script>
 export default {
   name: 'whoami',
-  props: {
-  },
-  data() {
-  },
-  mounted() {
-  },
-  methods: {
-  },
-  computed: {
-  },
 };
 </script>
 

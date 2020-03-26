@@ -14,7 +14,12 @@
         </div>
       </div>
       <div class="projectDetailBox">
-        <div class="thumnail"></div>
+        <div
+          v-if="projectList[activeProject].thumbnail"
+          class="thumbnail"
+          :style="{backgroundImage: `url('${projectList[activeProject].thumbnail}')`}"
+        />
+        <div v-else class="thumbnail noImg" />
         <h5>{{ projectList[activeProject].title }}</h5>
         <p
           v-for="(content, index) in projectList[activeProject].contents"
@@ -23,7 +28,7 @@
           - {{content}}
         </p>
         <p><b>{{projectList[activeProject].tech.join(', ')}}</b></p>
-        <a v-bind:href="projectList[activeProject].link">링크</a>
+        <a v-bind:href="projectList[activeProject].link" target='_blank' >링크</a>
       </div>
     </div>
   </div>
@@ -125,11 +130,18 @@ export default {
       background: $colorBg;
       box-shadow: 5px 5px 3px $colorShadow;
       box-sizing: border-box;
-      .thumnail {
+      .thumbnail {
         width: 80%;
         height: 45%;
         margin: 0 auto;
-        background: $colorMain;
+        background-image: url('../img/no-img.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        &.noImg {
+          background-size: 90px;
+          background-position: center;
+        }
       }
       h5 {
         font-size: 25px;

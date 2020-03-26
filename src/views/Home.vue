@@ -21,7 +21,7 @@ import Activities from '../components/Activities';
 import Contact from '../components/Contact';
 
 export default {
-  name: 'main',
+  name: 'home',
   components: {
     MainHeader,
     Whoami,
@@ -39,17 +39,30 @@ export default {
     };
   },
   mounted() {
-    this.getData('career', this.careerList);
-    this.getData('project', this.projectList);
-    this.getData('activity', this.activityList);
+    this.getData('career', 'careerList');
+    this.getData('project', 'projectList');
+    this.getData('activity', 'activityList');
   },
   methods: {
+    async getStorageFiles(files) {
+      const storageRef = await firebase.storage().ref();
+      const file = await storageRef.child(files).getDownloadURL()
+        .catch((e) => {
+          // eslint-disable-next-line no-console
+          console.log(e);
+        });
+      return file;
+    },
     async getData(collection, target) {
       const dataRef = await firebase.firestore().collection(collection);
       const data = await dataRef.where('isVisible', '==', true).orderBy('order', 'desc').get();
-      data.forEach((doc) => {
-        target.push(doc.data());
+      const arr = [];
+      data.forEach(async (doc) => {
+        // const img = await this.getStorageFiles(doc.data().thumbnail);
+        // console.log(img)
+        arr.push(doc.data());
       });
+      this[target] = arr;
     },
     check(target) {
       this.activeProject = target;

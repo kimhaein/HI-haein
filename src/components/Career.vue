@@ -11,8 +11,14 @@
           class="careerItem"
         >
           <h4>{{ item.startDate }} - {{ item.endDate }}</h4>
-          <div class="thumnail">{{ item.thumnail }}</div>
-          <h5>{{ item.title }} / {{ item.company }}</h5>
+          <div
+            v-if="item.thumbnail"
+            class="thumbnail"
+            :style="{backgroundImage: `url('${item.thumbnail}')`}"
+          />
+          <div v-else class="thumbnail noImg" />
+          <h5>{{ item.title }}</h5>
+          <p>{{ item.company }}</p>
           <p
             v-for="(content, index) in item.contents"
             :key="index"
@@ -20,7 +26,7 @@
             - {{content}}
           </p>
           <p><b>{{ item.tech.join(", ")}}</b></p>
-          <a v-bind:href="item.link">링크</a>
+          <a  v-if="item.link" :href="item.link" target='_blank' >링크</a>
         </li>
       </ul>
     </div>
@@ -31,10 +37,12 @@
 export default {
   name: 'career',
   props: {
-    type: Array,
-    required: true,
-    default() {
-      return [];
+    careerList: {
+      type: Array,
+      required: true,
+      default() {
+        return [];
+      },
     },
   },
 };
@@ -83,12 +91,21 @@ export default {
           font-size: 30px;
           font-weight: bold;
         }
-        .thumnail {
+        .thumbnail {
           @include flexAllCenter();
           height: 200px;
           background: $colorMain;
           border-radius: 10px;
           font-size: 20px;
+          background-image: url('../img/no-img.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: top;
+          box-shadow: 5px 5px 3px $colorShadow;
+          &.noImg {
+            background-size: 90px;
+            background-position: center;
+          }
         }
         h5 {
           margin-top: 20px;

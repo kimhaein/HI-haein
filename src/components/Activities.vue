@@ -9,7 +9,12 @@
             :key="item.title"
             class="activityItem"
           >
-            <div class="tumbnail">img</div>
+            <div
+              v-if="item.thumbnail"
+              class="thumbnail"
+              :style="{backgroundImage: `url('${item.thumbnail}')`}"
+            />
+            <div v-else class="thumbnail noImg" />
               <div class="info">
                 <h4>{{item.title}}</h4>
                 <p>{{item.date}}</p>
@@ -71,9 +76,6 @@ export default {
       height: 67%;
       padding: 20px 30px;
       box-sizing: border-box;
-      box-shadow: 5px 5px 3px $colorShadow;
-      border-radius: 30px;
-      background: $colorBg;
     }
 
     .activityList {
@@ -87,12 +89,21 @@ export default {
         width: 48%;
         height: 200px;
         margin: 20px 0;
-        border: 1px solid $colorPoint;
+        box-shadow: 5px 5px 3px $colorShadow;
         border-radius: 10px;
-        .tumbnail {
+        background: $colorBg;
+        .thumbnail {
           width: 250px;
           height: 200px;
-          background-color: red;
+          background: $colorMain;
+          background-image: url('../img/no-img.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          &.noImg {
+            background-size: 90px;
+            background-position: center;
+          }
         }
         .info {
           flex:1;
