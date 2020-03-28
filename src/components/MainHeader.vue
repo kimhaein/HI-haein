@@ -49,25 +49,24 @@ export default {
   justify-content: space-between;
   position: fixed;
   width: 100%;
-  height: 50px;
-  padding: 0 20px;
+  padding: 10px 20px;
   box-sizing: border-box;
   z-index: 9999;
   h1 {
     font-size: 25px;
     font-weight: bold;
-    padding: 5px 3px 3px;
+    padding: 5px 3px 10px;
     border-radius: 10px;
-    background: white;
+    background: $colorBg;
     box-shadow: 5px 5px 3px $colorShadow;
   }
   div {
     span {
       display: inline-block;
       margin-left: 5px;
-      padding: 3px 5px;
+      padding: 5px;
       border-radius: 10px;
-      background: white;
+      background: $colorBg;
       box-shadow: 5px 5px 3px $colorShadow;
       a {
         display: inline-block;

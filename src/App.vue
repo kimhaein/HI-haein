@@ -11,6 +11,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 @import './assets/styles/reset.scss';
 @import './assets/styles/common.scss';
 
@@ -21,7 +22,7 @@ html, body {
   font-family: 'Noto Sans KR', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // color:#4C5549;
+  font-size: 16px;
   height: 100%;
 }
 

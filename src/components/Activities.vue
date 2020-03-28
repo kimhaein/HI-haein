@@ -93,7 +93,7 @@ export default {
         border-radius: 10px;
         background: $colorBg;
         .thumbnail {
-          width: 250px;
+          width: 50%;
           height: 200px;
           background: $colorMain;
           background-image: url('../img/no-img.png');

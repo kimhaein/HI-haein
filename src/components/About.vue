@@ -50,6 +50,7 @@ export default {
   justify-content: space-around;
   @include backgroundImg("../img/bg02.jpg");
   .photo {
+    overflow:initial;
     position: relative;
     width: 300px;
     height: 340px;
@@ -71,6 +72,7 @@ export default {
     }
   }
   > div {
+    overflow: auto;
     position: relative;
     width: 38%;
     height: 75%;

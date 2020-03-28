@@ -25,18 +25,11 @@ export default {
 @import '../assets/styles/main.scss';
 
 .whoamiBox {
-  h1 {
-    @include positionVcenter(533px);
-    @include title01();
-    position: absolute;
-    margin-top: 90px;
-  }
   h2 {
-    @include positionVcenter(676px);
-    @include positionHcenter(330px);
+    @include positionVcenter(680px);
+    @include positionHcenter(350px);
     @include title01();
     position: fixed;
-    padding-top: 40px;
     line-height: 1.1em;
   }
   div {
@@ -48,14 +41,13 @@ export default {
     div {
       width: 50%;
       height: 60%;
-      margin-top: 100px;
       background: $colorSub02;
       box-shadow: 10px 10px 3px $colorShadow;
       // @include backgroundImg($url : '../assets/img/hi01.jpg', $size : contain);
     }
   }
   .textBox {
-    background: $colorMain;
+    background: $colorPoint;
   }
 }
 

@@ -15,10 +15,13 @@
             v-if="item.thumbnail"
             class="thumbnail"
             :style="{backgroundImage: `url('${item.thumbnail}')`}"
-          />
-          <div v-else class="thumbnail noImg" />
+          >
+            <span class="company">{{ item.company }}</span>
+          </div>
+          <div v-else class="thumbnail noImg">
+            <span class="company">{{ item.company }}</span>
+          </div>
           <h5>{{ item.title }}</h5>
-          <p>{{ item.company }}</p>
           <p
             v-for="(content, index) in item.contents"
             :key="index"
@@ -92,6 +95,8 @@ export default {
           font-weight: bold;
         }
         .thumbnail {
+          position: relative;
+          overflow: hidden;
           @include flexAllCenter();
           height: 200px;
           background: $colorMain;
@@ -105,6 +110,22 @@ export default {
           &.noImg {
             background-size: 90px;
             background-position: center;
+          }
+          .company {
+            position: absolute;
+            top: 18px;
+            right: -43px;
+            width: 150px;
+            transform: rotate(45deg);
+            box-shadow: 3px 3px 5px $colorShadow;
+            // bottom:0;
+            // left:0;
+            // width: 100%;
+            padding: 10px 0px 5px;
+            background-color: $colorBg;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
           }
         }
         h5 {

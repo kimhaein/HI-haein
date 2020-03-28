@@ -123,13 +123,14 @@ export default {
       }
     }
     .projectDetailBox {
-      text-align: center;
+      overflow: auto;
       width: 50%;
       height: 90%;
       padding: 30px;
       background: $colorBg;
       box-shadow: 5px 5px 3px $colorShadow;
       box-sizing: border-box;
+      text-align: center;
       .thumbnail {
         width: 80%;
         height: 45%;
