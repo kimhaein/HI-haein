@@ -43,11 +43,10 @@ export default {
       height: 60%;
       background: $colorSub02;
       box-shadow: 10px 10px 3px $colorShadow;
-      // @include backgroundImg($url : '../assets/img/hi01.jpg', $size : contain);
     }
   }
   .textBox {
-    background: $colorPoint;
+    background: $colorMain;
   }
 }
 

@@ -29,7 +29,7 @@
             - {{content}}
           </p>
           <p><b>{{ item.tech.join(", ")}}</b></p>
-          <a  v-if="item.link" :href="item.link" target='_blank' >링크</a>
+          <a  v-if="item.link" :href="item.link" target='_blank' >LINK</a>
         </li>
       </ul>
     </div>
@@ -118,10 +118,7 @@ export default {
             width: 150px;
             transform: rotate(45deg);
             box-shadow: 3px 3px 5px $colorShadow;
-            // bottom:0;
-            // left:0;
-            // width: 100%;
-            padding: 10px 0px 5px;
+            padding: 8px 0px;
             background-color: $colorBg;
             text-align: center;
             font-weight: bold;

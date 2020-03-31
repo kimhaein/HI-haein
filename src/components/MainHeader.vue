@@ -1,6 +1,6 @@
 <template>
   <div id='header'>
-    <h1>＜Portfolio /＞</h1>
+    <h1>＜Hi-Haein /＞</h1>
     <div>
       <span>
         <a href='https://github.com/kimhaein' target='_blank' title='깃허브 계정으로 이동'>

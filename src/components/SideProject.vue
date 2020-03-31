@@ -28,7 +28,7 @@
           - {{content}}
         </p>
         <p><b>{{projectList[activeProject].tech.join(', ')}}</b></p>
-        <a v-bind:href="projectList[activeProject].link" target='_blank' >링크</a>
+        <a v-bind:href="projectList[activeProject].link" target='_blank' >LINK</a>
       </div>
     </div>
   </div>
@@ -133,12 +133,15 @@ export default {
       text-align: center;
       .thumbnail {
         width: 80%;
-        height: 45%;
+        height: 48%;
         margin: 0 auto;
+        background-color: $colorMain;
         background-image: url('../img/no-img.png');
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: top;
+        border-radius: 10px;
+        box-shadow: 5px 5px 3px $colorShadow;
         &.noImg {
           background-size: 90px;
           background-position: center;
@@ -151,6 +154,13 @@ export default {
       }
       p {
         line-height: 1.8em;
+        b {
+          font-weight: bold;
+        }
+      }
+      a {
+        display: block;
+        margin-top:10px;
       }
     }
   }

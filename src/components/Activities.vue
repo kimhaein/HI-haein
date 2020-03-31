@@ -56,6 +56,7 @@ export default {
 
 .activitiesBox {
   @include flexAllCenter();
+    background-color: $colorBg;
   > div {
     @include flexAlignCenter();
     flex-direction: column;
@@ -95,7 +96,7 @@ export default {
         .thumbnail {
           width: 50%;
           height: 200px;
-          background: $colorMain;
+          background-color: $colorMain;
           background-image: url('../img/no-img.png');
           background-size: cover;
           background-repeat: no-repeat;
@@ -125,7 +126,8 @@ export default {
           padding: 0px 20px;
           border-radius: 10px;
           box-sizing: border-box;
-          background: white;
+          background-color: $colorPoint;
+          color: $colorBg;
           p {
             margin: 5px 0px;
             line-height: 1.5em;

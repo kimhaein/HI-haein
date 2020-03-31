@@ -6,7 +6,6 @@
     <Career :careerList="careerList" />
     <SideProject :projectList="projectList" />
     <Activities :activityList="activityList" />
-    <Contact/>
   </div>
 </template>
 
@@ -18,7 +17,6 @@ import About from '../components/About';
 import Career from '../components/Career';
 import SideProject from '../components/SideProject';
 import Activities from '../components/Activities';
-import Contact from '../components/Contact';
 
 export default {
   name: 'home',
@@ -29,7 +27,6 @@ export default {
     Career,
     SideProject,
     Activities,
-    Contact,
   },
   data() {
     return {
@@ -58,7 +55,7 @@ export default {
       const data = await dataRef.where('isVisible', '==', true).orderBy('order', 'desc').get();
       const arr = [];
       data.forEach(async (doc) => {
-        // const img = await this.getStorageFiles(doc.data().thumbnail);
+        // const img = await this.getStorageFiles('activity/study.jpeg');
         // console.log(img)
         arr.push(doc.data());
       });
