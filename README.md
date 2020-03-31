@@ -1,21 +1,23 @@
 # hi-haein
 
-> A Vue.js project
+> 개인 포트폴리오
 
-## Build Setup
+# Git Repository
 
-``` bash
-# install dependencies
-npm install
+- https://https://github.com/kimhaein/HI-haein
 
-# serve with hot reload at localhost:8080
-npm run dev
+# Getting Started
 
-# build for production with minification
-npm run build
+1. yarn
+2. yarn dev
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+# Project Stack
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Client
+
+- Vue.js
+- Sass
+
+## DataBase
+
+- firebase

@@ -59,7 +59,7 @@ export default {
 .careerBox {
   display: flex;
   justify-content: space-between;
-  background: $colorBg;
+  background-color: $colorBg;
   .careerTitle {
     @include flexJustifyCenter();
     flex-direction: column;

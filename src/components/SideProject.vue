@@ -68,6 +68,7 @@ export default {
   @include flexAllCenter();
   flex-direction: column;
   @include backgroundImg("../img/bg.jpg");
+  background-color: $colorBg;
   h2 {
     font-size: 80px;
     font-weight: bold;

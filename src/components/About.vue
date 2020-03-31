@@ -49,6 +49,7 @@ export default {
   align-items: center;
   justify-content: space-around;
   @include backgroundImg("../img/bg02.jpg");
+   background-color: $colorBg;
   .photo {
     overflow:initial;
     position: relative;
